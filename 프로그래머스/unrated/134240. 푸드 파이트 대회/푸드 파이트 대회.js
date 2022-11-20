@@ -1,14 +1,8 @@
 function solution(food) {
-    let answer = '';
-     let firstPlayerFood = '';
-    let SecondPlayerFood = '';
-    
-    for (let i = 0; i < food.length; i++) {
-        const repeatNum = parseInt(food[i]/2).toString()
-        
-        firstPlayerFood = firstPlayerFood.concat(i.toString().repeat(repeatNum))
-        SecondPlayerFood = firstPlayerFood.split('').reverse().join('');
+    let res = '';
+    for (let i = 1; i < food.length; i++) {
+        res += String(i).repeat(Math.floor(food[i]/2));
     }
-    answer = firstPlayerFood.concat('0',SecondPlayerFood);
-    return answer;
+
+    return res + '0' + [...res].reverse().join('');
 }
