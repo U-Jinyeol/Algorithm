@@ -1,8 +1,31 @@
+//처음 풀이
 function solution(food) {
-    let res = '';
-    for (let i = 1; i < food.length; i++) {
-        res += String(i).repeat(Math.floor(food[i]/2));
+    let answer = '';
+    let firstPlayerFood = '';
+    let SecondPlayerFood = '';
+    
+    for (let i = 0; i < food.length; i++) {
+        const repeatNum = parseInt(food[i]/2).toString()
+        
+        firstPlayerFood += i.toString().repeat(repeatNum)
+        SecondPlayerFood = firstPlayerFood.split('').reverse().join('');
     }
+    answer = firstPlayerFood.concat('0',SecondPlayerFood);
+    return answer;
+}
 
-    return res + '0' + [...res].reverse().join('');
+
+//개선 코드
+function solution(food) {
+    let answer = '';
+    let firstPlayerFood = '';
+    let SecondPlayerFood = '';
+    
+    for (let i = 0; i < food.length; i++) {
+        const repeatNum = parseInt(food[i]/2)
+        firstPlayerFood += i.toString().repeat(repeatNum)
+    }
+    SecondPlayerFood = [...firstPlayerFood].reverse().join('');
+                                                           
+    return firstPlayerFood + '0' + SecondPlayerFood;
 }
