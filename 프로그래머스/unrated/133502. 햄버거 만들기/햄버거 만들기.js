@@ -14,12 +14,7 @@ function solution(ingredient) {
         arr[len - 2] === 3 &&
         arr[len - 1] === 1
       ) {
-
-        arr.pop();
-        arr.pop();
-        arr.pop();
-        arr.pop();
-
+        arr.splice(-4)
         answer++;
       }
     }
